@@ -71,6 +71,18 @@ ul li > a:focus:before {
     transform: scaleX(1);
 }
 
+.generalWidth {
+    width: 60%;
+    margin: 0 20%;
+    float: left;
+}
+
+.imageWidth {
+    width: 40%;
+    margin-left: 20%;
+    float: left;
+}
+
 .stickyBack {
     background-color: #fefefe;
 }
@@ -97,91 +109,78 @@ ul li > a:focus:before {
     border-radius: 4px;
 }
 
-.generalWidth {
-    width: 60%;
-    margin-right: 20%;
-    margin-left: 20%;
-}
-
 /* ************************************ */
 
 #showcase {
     width: 100%;
-    margin: 0;
-    padding: 56px 0 0 0;
-    float: left;
-    background-color: #161616;
-    position: fixed;
+    margin-top: 56px;
+    position: absolute;
     z-index: -1;
 }
 
 #showcaseImage {
-    margin: 0;
-    padding: 0;
     width: 100%;
-    float: left;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-#findOutMore {
-    width: 5%;
-    margin: 744px 0 0 47.5%;
-    position: absolute;
-    border-radius: 8px;
-}
-
-#more {
-    width: 100%;
-    font-family: sans-serif;
-    font-size: 24px;
-    color: #fefefe;
-    text-decoration: none;
-    text-align: center;
-    float: left;
-}
-
-.moreImage {
-    width: 50%;
-    float: left;
-    margin: 8px 25% 0 25%;
-    padding: 0;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    position: fixed;
+    z-index: -1;
 }
 
 #showcaseDiv {
-    margin: 240px 0 0 0;
-    padding: 0;
+    margin-top: 240px;
     width: 100%;
-    position: absolute;
 }
 
 #showcaseHead {
-    margin: 0 0 0 52%;
     width: 48%;
+    margin-left: 52%;
     font-family: "Segoe UI", sans-serif;
     font-size: 40px;
     color: #fefefe;
 }
 
 #showcaseText {
-    margin: 32px 0 0 52%;
     width: 48%;
+    margin-top: 32px;
+    margin-left: 52%;
     font-family: sans-serif;
     font-size: 20px;
     color: #fefefe;
+}
+
+#findOutMore {
+    width: 5%;
+    margin-top: 450px;
+    margin-left: 47.5%;
+    border-radius: 8px;
+}
+
+#more {
+    width: 100%;
+    float: left;
+    font-family: sans-serif;
+    font-size: 24px;
+    color: #fefefe;
+    text-decoration: none;
+    text-align: center;
+}
+
+#moreImage {
+    width: 50%;
+    margin: 8px 25% 0 25%;
+    float: left;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 /* ************************************ */
 
 #me {
     width: 100%;
-    margin: 900px 0 0 0;
     padding: 64px 0;
     float: left;
     background-color: #161616;
@@ -217,35 +216,25 @@ ul li > a:focus:before {
 }
 
 .projectsHead {
-    margin: 0 20%;
-    width: 60%;
-    display: inline-block;
     font-family: "Segoe UI", sans-serif;
     font-size: 40px;
 }
 
 .projectsCategory {
-    margin: 32px 20% 0 20%;
-    width: 60%;
-    display: inline-block;
+    margin-top: 32px;
     font-family: "Segoe UI", sans-serif;
     font-size: 40px;
     text-align: center;
 }
 
 .projectsSubHead {
-    margin: 32px 20% 0 20%;
-    width: 60%;
-    display: inline-block;
+    margin-top: 32px;
     text-align: center;
     font-family: "Segoe UI", sans-serif;
     font-size: 32px;
 }
 
 .projectsDate {
-    margin: 0 20% 0 20%;
-    width: 60%;
-    display: inline-block;
     text-align: center;
     font-family: "Segoe UI", sans-serif;
     font-size: 16px;
@@ -253,24 +242,18 @@ ul li > a:focus:before {
 }
 
 .projectsText {
-    margin: 32px 20% 0 20%;
-    width: 60%;
-    display: inline-block;
+    width: 100%;
+    margin-top: 32px;
+    float: left;
     text-align: center;
     font-family: sans-serif;
     font-size: 20px;
 }
 
-.withImage {
-    margin-right: 0;
-    width: 40%;
-    float: left;
-}
-
 .projectImage {
-    margin: 0 20% 0 2%;
     width: 18%;
-    display: inline-block;
+    margin: 32px 20% 0 2%;
+    float: left;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -278,8 +261,8 @@ ul li > a:focus:before {
 }
 
 #jimNotificationImage {
-    margin: 16px 9% 0 29%;
-    width: 22%;
+    width: 80%;
+    margin: 32px 10% 0 10%;
     float: left;
     background-attachment: fixed;
     background-position: center;
@@ -288,16 +271,16 @@ ul li > a:focus:before {
 }
 
 #sortUl {
+    width: 100%;
     margin: 0;
     padding: 0;
-    width: 100%;
 }
 
 .sortUlLi {
-    margin: 16px 0 0 20%;
-    width: 40%;
+    width: 100%;
+    margin-top: 16px;
     padding: 0;
-    display: inline-block;
+    float: left;
     text-align: center;
     font-family: sans-serif;
     font-size: 20px;

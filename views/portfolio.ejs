@@ -52,13 +52,13 @@
 		function setMargin() {
 
 			var height = $("#showcaseImage").css("height");
-			$("#me").css("margin-top", Number(height.slice(0, -2)) + 56 + "px");
+			$("#me").css("margin-top", Number(height.slice(0, -2)) - 128 + "px");
 		}
 
 		$(window).resize(function() {
 
 			var height = $("#showcaseImage").css("height");
-			$("#me").css("margin-top", Number(height.slice(0, -2)) + 56 + "px");
+			$("#me").css("margin-top", Number(height.slice(0, -2)) - 128 + "px");
 		});
 
 	</script> 
@@ -80,27 +80,20 @@
 
 	<div id="showcase">
 
-		<img id="showcaseImage" src="/images/codeGrey.jpg" alt="Programming workspace" onload="setMargin()">
-
-		<div id="findOutMore">
-
-			<a id="more" href="#me">More</a>
-
-			<a href="#me">
-			
-				<img class="moreImage" src="/images/whiteDownArrow.png" alt="Down arrow">
-			
-			</a>
-
-		</div>
+		<img id="showcaseImage" src="/images/codeGrey.png" alt="Programming workspace" onload="setMargin()">
 
 		<div id="showcaseDiv">
-
 			<p id="showcaseHead">J A C K&nbsp;&nbsp;&nbsp;&nbsp;F A U L K N E R</p>
-
 			<p id="showcaseText">Self-learning software development and CS student.</p>
-
 		</div>
+
+		<div id="findOutMore">
+			<a id="more" href="#me">More</a>
+			<a href="#me">
+				<img id="moreImage" src="/images/whiteDownArrow.png" alt="Down arrow">
+			</a>
+		</div>
+
 	</div>
 
 	<div id="me">
@@ -118,15 +111,19 @@
 
 		<p class="projectsCategory generalWidth">ProjectX</p>
 		<p class="projectsDate generalWidth">Started Febuary 2020</p>
-		<p class="projectsText generalWidth">ProjectX started when I began doing projects with a greater focus on quality and design in Febuary 2020. This initally began with researching and redesigning the way my server for these projects was setup. This new tier of projects have been mainly focused on Android app development as this is where I have the most experience and interest in the software industry. All of the software under the ProjectX title shows the high level of knowledge I've gained since beginning my software development journey.</p>
+		<div class="generalWidth">
+			<p class="projectsText">ProjectX started when I began doing projects with a greater focus on quality and design in Febuary 2020. This initally began with researching and redesigning the way my server for these projects was setup. This new tier of projects have been mainly focused on Android app development as this is where I have the most experience and interest in the software industry. All of the software under the ProjectX title shows the high level of knowledge I've gained since beginning my software development journey.</p>
+		</div>
 
 		<div class="spacerThin generalWidth">
 		</div>
 
-		<p class="projectsSubHead withImage">JFinance Android app - Java</p>
-		<p class="projectsDate withImage">Febuary to June 2020</p>
-		<p class="projectsText withImage">JFinance is an application written to provide it's user base a way of viewing all their purchases, bills, and incoming money from a single place. I made JFinance, or Jack's Finance, to give myself the opportunity to view all of my finances in a central app. This includes bank accounts, cash or smaller budgets set aside for a specific purpose. At its core, the app works by having the user input all their transactions relating a pot, it then shows a transcript of these transactions for each pot as well as an overview of all of the users pots with a total sum and pie chart displaying the pots data.</p>
-		<p class="projectsText withImage">JFinance is connected to a database but also downloads and stores the users data on their device for use offline when internet connectivity is limited. Then uploading any changes again once internet connectivity is restored. Additionally, JFinance was the first time I used version control, specifically GitHub, for one of my personal projects, as I had started learning to use Git for a group project at university.</p>
+		<p class="projectsSubHead generalWidth">JFinance Android app - Java</p>
+		<p class="projectsDate generalWidth">Febuary to June 2020</p>
+		<div class="imageWidth">
+			<p class="projectsText">JFinance is an application written to provide it's user base a way of viewing all their purchases, bills, and incoming money from a single place. I made JFinance, or Jack's Finance, to give myself the opportunity to view all of my finances in a central app. This includes bank accounts, cash or smaller budgets set aside for a specific purpose. At its core, the app works by having the user input all their transactions relating a pot, it then shows a transcript of these transactions for each pot as well as an overview of all of the users pots with a total sum and pie chart displaying the pots data.</p>
+			<p class="projectsText">JFinance is connected to a database but also downloads and stores the users data on their device for use offline when internet connectivity is limited. Then uploading any changes again once internet connectivity is restored. Additionally, JFinance was the first time I used version control, specifically GitHub, for one of my personal projects, as I had started learning to use Git for a group project at university.</p>
+		</div>
 		<img class="projectImage" src="/images/screenshotJFinance.jpg" alt="Screenshot of JFinance app">
 
 		<div class="spacerThin generalWidth">
@@ -134,52 +131,64 @@
 
 		<p class="projectsSubHead generalWidth">Portfolio website - NodeJS & HTML</p>
 		<p class="projectsDate generalWidth">Started June 2020</p>
-		<p class="projectsText generalWidth">This website itself is also one of my projects. Rather than simply make a word document to present these projects, I thought producing a website dedicate to showcasing the projects I have worked on would better demonstrate the quality of software developed. Much like JFinance, this website was served from a PHP backend but I have since migrated to using NodeJS for my backend technology and therefore refactored the website's code to be deployed by NodeJS. The majority of the webiste is static content written in HTML that is then designed and formatted using CSS, with some minor features enabled by JS such as the navigation bar that changes as you scroll down from the top of the page.</p>
+		<div class="generalWidth">
+			<p class="projectsText">This website itself is also one of my projects. Rather than simply make a word document to present these projects, I thought producing a website dedicate to showcasing the projects I have worked on would better demonstrate the quality of software developed. Much like JFinance, this website was served from a PHP backend but I have since migrated to using NodeJS for my backend technology and therefore refactored the website's code to be deployed by NodeJS. The majority of the webiste is static content written in HTML that is then designed and formatted using CSS, with some minor features enabled by JS such as the navigation bar that changes as you scroll down from the top of the page.</p>
+		</div>
 
 		<div class="spacerThin generalWidth">
 		</div>
 
-		<p class="projectsSubHead withImage">JTetris Android app - Java</p>
-		<p class="projectsDate withImage">July 2020</p>
-		<p class="projectsText withImage">JTetris is my own take on the game Tetris and is controlled in the same way as the actual game. The user can move the shape side to side by touching and moving on the screen, rotate the shape with a tap, and swipe down to quickly drop the shape. When a line is completed that line disappears and all of the settled shapes drop down a layer. The game ends once the board is full and the users score shows how well they have done. Each shape is made up using individual squares as this allows for the shape to be easily broken down when completed layers start disappearing.</p>
-		<p class="projectsText withImage">As JTetris was made using Android Studio, the input for the game works by tracking the users touch input, manipulating the falling shape based on certain conditions. As a result of this the game does not have a particularly smooth response to the user swiping down and the falling shape sometimes drops in the wrong location. Idealy, I would have chosen a game engine to develop JTetris on but I wanted to make it a quick project, it took just 2 days, to get back into the flow of coding.</p>
+		<p class="projectsSubHead generalWidth">JTetris Android app - Java</p>
+		<p class="projectsDate generalWidth">July 2020</p>
+		<div class="imageWidth">
+			<p class="projectsText">JTetris is my own take on the game Tetris and is controlled in the same way as the actual game. The user can move the shape side to side by touching and moving on the screen, rotate the shape with a tap, and swipe down to quickly drop the shape. When a line is completed that line disappears and all of the settled shapes drop down a layer. The game ends once the board is full and the users score shows how well they have done. Each shape is made up using individual squares as this allows for the shape to be easily broken down when completed layers start disappearing.</p>
+			<p class="projectsText">As JTetris was made using Android Studio, the input for the game works by tracking the users touch input, manipulating the falling shape based on certain conditions. As a result of this the game does not have a particularly smooth response to the user swiping down and the falling shape sometimes drops in the wrong location. Idealy, I would have chosen a game engine to develop JTetris on but I wanted to make it a quick project, it took just 2 days, to get back into the flow of coding.</p>
+		</div>
 		<img class="projectImage" src="/images/screenshotJTetris.jpg" alt="Screenshot of JTetris app">
 
 		<div class="spacerThin generalWidth">
 		</div>
 
-		<p class="projectsSubHead withImage">JIM Android app - Java</p>
-		<p class="projectsDate withImage">July & August 2020</p>
-		<p class="projectsText withImage">JIM or Jack's Instant Messaging, was an app I originally developed in about 2018 but this old version of the app was riddled with bugs, unpleasant design and an unstable backend. For those reasons this updated version of JIM had a solid focus on reliable code with a modern UI design. I took all the core ideas from the old JIM but implemented them in a much more comprehensive manner. A major number of the features are enabled by connecting to the server, because it's an instant messaging application. This meant that error checking for each communication between a user and the server had to be remarkably sophisticated in order to give a great user experience when issues inevitably arise.</p>
-		<p class="projectsText withImage">Unlike my first attempt at an instant messaging app, this iteration of JIM updates in real time when a user is on the app to deliver messages promptly. JIM also sends notifications in a timely manner for every new message a user receives. In the beginning of implementing JIM the backend had been written in PHP which was working well until I came to adding real time notifications. At this point I discovered no way to achieve such functionality in PHP meaning I decided to migrate over to NodeJS for this portion of the project. In doing so I discovered that NodeJS in conjunction with the ExpressJS framework provided a more flexible way of responding to requests. As a result I refactored the code based for the rest of the project and migrated the whole server-side functionality to work in NodeJS.</p>
-		<img id="jimNotificationImage" src="/images/screenshotJIMNotification.jpg" alt="Screenshot of JIM notification">
+		<p class="projectsSubHead generalWidth">JIM Android app - Java</p>
+		<p class="projectsDate generalWidth">July & August 2020</p>
+		<div class="imageWidth">
+			<p class="projectsText">JIM or Jack's Instant Messaging, was an app I originally developed in about 2018 but this old version of the app was riddled with bugs, unpleasant design and an unstable backend. For those reasons this updated version of JIM had a solid focus on reliable code with a modern UI design. I took all the core ideas from the old JIM but implemented them in a much more comprehensive manner. A major number of the features are enabled by connecting to the server, because it's an instant messaging application. This meant that error checking for each communication between a user and the server had to be remarkably sophisticated in order to give a great user experience when issues inevitably arise.</p>
+			<p class="projectsText">Unlike my first attempt at an instant messaging app, this iteration of JIM updates in real time when a user is on the app to deliver messages promptly. JIM also sends notifications in a timely manner for every new message a user receives. In the beginning of implementing JIM the backend had been written in PHP which was working well until I came to adding real time notifications. At this point I discovered no way to achieve such functionality in PHP meaning I decided to migrate over to NodeJS for this portion of the project. In doing so I discovered that NodeJS in conjunction with the ExpressJS framework provided a more flexible way of responding to requests. As a result I refactored the code based for the rest of the project and migrated the whole server-side functionality to work in NodeJS.</p>
+			<img id="jimNotificationImage" src="/images/screenshotJIMNotification.jpg" alt="Screenshot of JIM notification">
+		</div>
 		<img class="projectImage" src="/images/screenshotJIM.jpg" alt="Screenshot of JIM app">
 
 		<div class="spacerThin generalWidth">
 		</div>
 
-		<p class="projectsSubHead withImage">JNoughts&Crosses Android app - Kotlin</p>
-		<p class="projectsDate withImage">August 2020</p>
-		<p class="projectsText withImage">JNoughts&Crosses is, as the title suggests, a noughts and crosses game where players take it in turns to place a colour, in this case, and the first to get three of their colour in a row, wins. It is the first Android app I have made to include an AI as the other player, the blue player, is an AI algorithm. The AI uses a minimax algorithm adopted for the purpose of noughts and crosses. Minimax was not a new concept to me as I had tried to use it previously with little success as I hadn't taken the time to properly understand the theory behind it, but this time I had no issues implementing the decision rules.</p>
-		<p class="projectsText withImage">Additionally to it being the first AI Android app, it is also the first proper project I have written in Kotlin. I thought that something as simple as the noughts and crosses game would be a great introduction app to code in Kotlin. Overall the transition from Java to Kotlin was smooth, definitely being assisted by the handful of some Koltin programs I had experimented with previously.</p>
+		<p class="projectsSubHead generalWidth">JNoughts&Crosses Android app - Kotlin</p>
+		<p class="projectsDate generalWidth">August 2020</p>
+		<div class="imageWidth">
+			<p class="projectsText">JNoughts&Crosses is, as the title suggests, a noughts and crosses game where players take it in turns to place a colour, in this case, and the first to get three of their colour in a row, wins. It is the first Android app I have made to include an AI as the other player, the blue player, is an AI algorithm. The AI uses a minimax algorithm adopted for the purpose of noughts and crosses. Minimax was not a new concept to me as I had tried to use it previously with little success as I hadn't taken the time to properly understand the theory behind it, but this time I had no issues implementing the decision rules.</p>
+			<p class="projectsText">Additionally to it being the first AI Android app, it is also the first proper project I have written in Kotlin. I thought that something as simple as the noughts and crosses game would be a great introduction app to code in Kotlin. Overall the transition from Java to Kotlin was smooth, definitely being assisted by the handful of some Koltin programs I had experimented with previously.</p>
+		</div>
 		<img class="projectImage" src="/images/screenshotJNoughts&Crosses.jpg" alt="Screenshot of JNoughts&Crosses app">
 		
 		<div class="spacerThin generalWidth">
 		</div>
 
-		<p class="projectsSubHead withImage">NumberRecognition program & Android app - Java</p>
-		<p class="projectsDate withImage">September 2020</p>
-		<p class="projectsText withImage">The NumberRecognition app implements a trained neural netowrk that I wrote in another program which achieves 96% accuracy on the testing data. Using a trained network for the purpose of the app made the most sense as training the network on the users device would take too long and appear to be extremely boring. The app works by loading the saved biases and weights from a previously trained neural network into a cut down version of the network that can be used to test the biases and weights on the fly. Using this trained network substitue allows the app to either cycle through a list of testing data, predicting each one as it goes, or get the user to draw a digit on screen and predict the number drawn.</p>
-		<p class="projectsText withImage">The NumberRecognition program implements a network that is fed a list of input data with a list of labels relating to the correct prediction for that input data. In the program the hidden layers, number of epochs, mini batch size and learning rate can all be altered before execution, each giving a different level of accuracy depending on their value. All of the code is written in Java and the network I wrote by watching a series of YouTube videos on neural networks along side searching the web for how to implement the different calculations and equations. Luckily, as all of the data is stored in matrices, I did some work on matrices in college and matrix manipulation in greater detail at university. The YouTube series is by 3Blue1Brown explaining each component of a the neural network and how they work together as a whole.</p>
+		<p class="projectsSubHead generalWidth">NumberRecognition program & Android app - Java</p>
+		<p class="projectsDate generalWidth">September 2020</p>
+		<div class="imageWidth">
+			<p class="projectsText">The NumberRecognition app implements a trained neural netowrk that I wrote in another program which achieves 96% accuracy on the testing data. Using a trained network for the purpose of the app made the most sense as training the network on the users device would take too long and appear to be extremely boring. The app works by loading the saved biases and weights from a previously trained neural network into a cut down version of the network that can be used to test the biases and weights on the fly. Using this trained network substitue allows the app to either cycle through a list of testing data, predicting each one as it goes, or get the user to draw a digit on screen and predict the number drawn.</p>
+			<p class="projectsText">The NumberRecognition program implements a network that is fed a list of input data with a list of labels relating to the correct prediction for that input data. In the program the hidden layers, number of epochs, mini batch size and learning rate can all be altered before execution, each giving a different level of accuracy depending on their value. All of the code is written in Java and the network I wrote by watching a series of YouTube videos on neural networks along side searching the web for how to implement the different calculations and equations. Luckily, as all of the data is stored in matrices, I did some work on matrices in college and matrix manipulation in greater detail at university. The YouTube series is by 3Blue1Brown explaining each component of a the neural network and how they work together as a whole.</p>
+		</div>
 		<img class="projectImage" src="/images/screenshotNumberRecognition.jpg" alt="Screenshot of NumberRecognition app">
 
 		<div class="spacerThin generalWidth">
 		</div>
 		
-		<p class="projectsSubHead withImage">JSnake program & Android apps - Java & Kotlin</p>
-		<p class="projectsDate withImage">August & September 2020</p>
-		<p class="projectsText withImage">JSnake is another project I've made multiple variations of starting with a Java console program. This console JSnake was a basic snake game made a while back, maybe the end of 2016, as I was starting to move into solving more complex problem. The next iteration of JSnake was an Android app written in Java made at some point in 2017 and again was just the basic snake but with an appealing UI as opposed to the console game. The final iteration of JSnake is this version, the Android app written in Kotlin in August 2020. It includes an AI mode on top of the basic game. The AI mode has 3 different setting, each one implementing a different AI alogrithm.</p>
-		<p class="projectsText withImage">This last version of JSnake has later, after the NumberRecognition project, been modified to add a machine learning neural netowrk feature. JSnake now includes a similar network to the NumberRecognition program designed for the snake game. The network can be used to visualise how machines can learn over time, by altering their behaviour based upon what goes right or what goes wrong during a period of training. Once turned on a user can modify the batch size and hidden layers used by the network, giving a fluctuation in performance.</p>
+		<p class="projectsSubHead generalWidth">JSnake program & Android apps - Java & Kotlin</p>
+		<p class="projectsDate generalWidth">August & September 2020</p>
+		<div class="imageWidth">
+			<p class="projectsText">JSnake is another project I've made multiple variations of starting with a Java console program. This console JSnake was a basic snake game made a while back, maybe the end of 2016, as I was starting to move into solving more complex problem. The next iteration of JSnake was an Android app written in Java made at some point in 2017 and again was just the basic snake but with an appealing UI as opposed to the console game. The final iteration of JSnake is this version, the Android app written in Kotlin in August 2020. It includes an AI mode on top of the basic game. The AI mode has 3 different setting, each one implementing a different AI alogrithm.</p>
+			<p class="projectsText">This last version of JSnake has later, after the NumberRecognition project, been modified to add a machine learning neural netowrk feature. JSnake now includes a similar network to the NumberRecognition program designed for the snake game. The network can be used to visualise how machines can learn over time, by altering their behaviour based upon what goes right or what goes wrong during a period of training. Once turned on a user can modify the batch size and hidden layers used by the network, giving a fluctuation in performance.</p>
+		</div>
 		<img class="projectImage" src="/images/screenshotJSnake.jpg" alt="Screenshot of JSnake app">
 
 		<div class="spacer generalWidth">
@@ -187,46 +196,55 @@
 
 		<p class="projectsCategory generalWidth">The Server - NodeJS, PHP, HTML & MySQL with Dataplicity</p>
 		<p class="projectsDate generalWidth">Updated Version Started Febuary 2020</p>
-		<p class="projectsText generalWidth">At first, I would use a WAMP server for projects before starting the ProjectX projects. This proved to be reasonably unstable, which I'm sure was not helped by my, at the time, inconsistent and likely inefficient code, but was also limited to only being accessible with the host device's IP address on the local network.</p>
-		<p class="projectsText generalWidth">This changed when I did some research into how to properly have a server setup and ways to setup a home server without jeprodising security. In the process of doing so I found Dataplicity, a service to create an agent device using Nginx on a Raspberry Pi that connects via a secure HTTPS connection to the Dataplicity servers, in order to provide a remote shell and unique domain to connect to software stored on the Raspberry Pi.</p> 
-		<p class="projectsText generalWidth">Once the Dataplicity service was up and running, I was able to install all of the software on the server to use PHP and MySQL along with phpMyAdmin which I used as the backend for my JFinance app. This was shortly followed by switching the main server software from PHP to NodeJS for all future projects as I found it to be more flexible, concise and easily scalable.</p>
+		<div class="generalWidth">
+			<p class="projectsText">At first, I would use a WAMP server for projects before starting the ProjectX projects. This proved to be reasonably unstable, which I'm sure was not helped by my, at the time, inconsistent and likely inefficient code, but was also limited to only being accessible with the host device's IP address on the local network.</p>
+			<p class="projectsText">This changed when I did some research into how to properly have a server setup and ways to setup a home server without jeprodising security. In the process of doing so I found Dataplicity, a service to create an agent device using Nginx on a Raspberry Pi that connects via a secure HTTPS connection to the Dataplicity servers, in order to provide a remote shell and unique domain to connect to software stored on the Raspberry Pi.</p> 
+			<p class="projectsText">Once the Dataplicity service was up and running, I was able to install all of the software on the server to use PHP and MySQL along with phpMyAdmin which I used as the backend for my JFinance app. This was shortly followed by switching the main server software from PHP to NodeJS for all future projects as I found it to be more flexible, concise and easily scalable.</p>
+		</div>
 
 		<div class="spacer generalWidth">
 		</div>
 
 		<p class="projectsCategory generalWidth">Previous Projects</p>
 		<p class="projectsDate generalWidth">2016 to January 2020</p>
-		<p class="projectsText generalWidth">My first coding projects would consist of following a handful of tutorials and piecing together the parts relevant to create what I had envisioned for the outcome of the project. I originally began doing this as I wanted to understand the ways in which my favourite computer games functioned but this focus transformed over time as I wanted to figure out how some of the most popular apps operate. Over this period of about 4 years I completed at least 50 or so projects all of which taught me something new about software development or assisted in me fine-tuning my software development skills. The languages I have used throughout this time</p>
-		
+		<div class="generalWidth">
+			<p class="projectsText">My first coding projects would consist of following a handful of tutorials and piecing together the parts relevant to create what I had envisioned for the outcome of the project. I originally began doing this as I wanted to understand the ways in which my favourite computer games functioned but this focus transformed over time as I wanted to figure out how some of the most popular apps operate. Over this period of about 4 years I completed at least 50 or so projects all of which taught me something new about software development or assisted in me fine-tuning my software development skills. The languages I have used throughout this time</p>
+		</div>
+
 		<div class="spacerThin generalWidth">
 		</div>
 
-		<p class="projectsSubHead withImage">SearchPlane program & Android app - Java</p>
-		<p class="projectsText withImage">SearchPlane was first written as a program to give myself an understanding of how a computer can search through a 2D space looking for a set target. Once I had achieved just that I realised this was fine for simply finding the location of the target but, for a 2D plane, the application may require a path to the target. Therefore, after the target has been located, the program then found a valid path from the starting point to the target. After writing this in a Java program, the output was just the finished search plane with a valid path added to it. Overall, that is not an easy way to gain a deeper knowledge on how the program was coming to this final result. So I modified the program into an Android app that shows step by step how the process is computed.</p>
-		<p class="projectsText withImage">I have since learnt about better suited search algorithms that use heuristics or costs to determine the best direction to search. At university, as part of the first year AI module, we focused on A*. This would have been a superior method of searching the plane and would be a brilliant alternative to the method I used for this app.</p>
+		<p class="projectsSubHead generalWidth">SearchPlane program & Android app - Java</p>
+		<div class="imageWidth">
+			<p class="projectsText">SearchPlane was first written as a program to give myself an understanding of how a computer can search through a 2D space looking for a set target. Once I had achieved just that I realised this was fine for simply finding the location of the target but, for a 2D plane, the application may require a path to the target. Therefore, after the target has been located, the program then found a valid path from the starting point to the target. After writing this in a Java program, the output was just the finished search plane with a valid path added to it. Overall, that is not an easy way to gain a deeper knowledge on how the program was coming to this final result. So I modified the program into an Android app that shows step by step how the process is computed.</p>
+			<p class="projectsText">I have since learnt about better suited search algorithms that use heuristics or costs to determine the best direction to search. At university, as part of the first year AI module, we focused on A*. This would have been a superior method of searching the plane and would be a brilliant alternative to the method I used for this app.</p>
+		</div>
 		<img class="projectImage" src="/images/screenshotSearchPlane.jpg" alt="Screenshot of SearchPlane app">
 		
 		<div class="spacerThin generalWidth">
 		</div>
 
-		<p class="projectsSubHead withImage">SortVisualisation Android app - Java</p>
-		<p class="projectsText withImage">SortVisualisation is an app to demonstrate the ways different sorting algorithms are executed. The app works by moving the blue bar to the position on the screen that it is in the array. Each bar also repsents a number, visulised on screen by the height of its view. It can illustrate the following sorting algorithms:</p>
-		<ul id="sortUl">
-			<li class="sortUlLi withImage">&#8226; Bubble Sort</li>
-			<li class="sortUlLi withImage">&#8226; Heap Sort</li>
-			<li class="sortUlLi withImage">&#8226; Insertion Sort</li>
-			<li class="sortUlLi withImage">&#8226; Merge Sort</li>
-			<li class="sortUlLi withImage">&#8226; Quick Sort</li>
-			<li class="sortUlLi withImage">&#8226; Selection Sort</li>
-		</ul>
+		<p class="projectsSubHead generalWidth">SortVisualisation Android app - Java</p>
+		<div class="imageWidth">
+			<p class="projectsText">SortVisualisation is an app to demonstrate the ways different sorting algorithms are executed. The app works by moving the blue bar to the position on the screen that it is in the array. Each bar also repsents a number, visulised on screen by the height of its view. It can illustrate the following sorting algorithms:</p>
+			<ul id="sortUl">
+				<li class="sortUlLi">&#8226; Bubble Sort</li>
+				<li class="sortUlLi">&#8226; Heap Sort</li>
+				<li class="sortUlLi">&#8226; Insertion Sort</li>
+				<li class="sortUlLi">&#8226; Merge Sort</li>
+				<li class="sortUlLi">&#8226; Quick Sort</li>
+				<li class="sortUlLi">&#8226; Selection Sort</li>
+			</ul>
+		</div>
 		<img class="projectImage" src="/images/screenshotSortVisualisation.jpg" alt="Screenshot of SortVisualisation app">
 
 		<div class="spacerThin generalWidth">
 		</div>
 
 		<p class="projectsSubHead generalWidth">WebGame Android app & website - Java, HTML & JS</p>
-		<p class="projectsText generalWidth">WebGame was an Android app that acted as a controller paired with a website that showed the "game" itself. The app which consisted soley of an interface to control the game worked by connecting to the servers database and altering some values in a specific table, which the website then loaded via AJAX and used to play the game. The game wasn't much of a game but instead just a square which moved around the screen. While not exciting to play, and pretty slow to react to any input, it allowed me to explore how some functionality like this could be achieved in a real product.</p>
-
+		<div class="generalWidth">
+			<p class="projectsText">WebGame was an Android app that acted as a controller paired with a website that showed the "game" itself. The app which consisted soley of an interface to control the game worked by connecting to the servers database and altering some values in a specific table, which the website then loaded via AJAX and used to play the game. The game wasn't much of a game but instead just a square which moved around the screen. While not exciting to play, and pretty slow to react to any input, it allowed me to explore how some functionality like this could be achieved in a real product.</p>
+		</div>
 	</div>
 
 	<div id="contact">
