@@ -1,0 +1,218 @@
+/*
+
+    colorPrimary: #BB86FC;
+    colorPrimaryDark: #363636;
+    colorAccent: #D8618C;
+
+    colorSecondary: #55BDCA;
+    colorTertiary: #F27D42;
+    colorBackground: #272727;
+    colorAccentDisabled: #964E69;
+    colorTertiaryDisabled: #A55F3D;
+
+    colorTitleText: #FFFFFF;
+    inbetweenText: #E0E0E0;
+    colorHighText: #AAABAC;
+    colorLowText: #828384;
+    colorAccentText: #000000;
+
+*/
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #fefefe;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+#navDiv {
+    width: 100%;
+    height: 56px;
+    background-color: #fefefe;
+    font-family: "Segoe UI", sans-serif;
+    font-size: 20px;
+    position: fixed;
+    top: 0;
+    z-index: 20;
+}
+
+nav {
+    display: block;
+    width: 40%;
+    margin: 0 0 0 20%;
+    padding: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    list-style-type: none;
+}
+
+ul li {
+    display: inline-block;
+    margin: 0;
+    position: relative;
+    width: 20%;
+}
+  
+ul li > a {
+    display: block;
+    line-height: 56px;
+    text-align: center;
+    background-color: #fefefe;
+    color: #333;
+    text-decoration: none;
+    z-index: 1;
+}
+  
+ul li > a:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background: #D8618C;
+    visibility: hidden;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: .25s linear;
+}
+
+ul li > a:hover:before,
+ul li > a:focus:before {
+    visibility: visible;
+    transform: scaleX(1);
+}
+
+.spacerThin {
+    width: 60%;
+    margin: 64px 20%;
+    height: 1px;
+    float: left;
+    background-color: #D8618C;
+    border-radius: 4px;
+}
+
+.generalWidth {
+    width: 60%;
+    margin-right: 20%;
+    margin-left: 20%;
+}
+
+/* ************************************ */
+
+#cv {
+    width: 100%;
+    min-height: 800px;
+    margin: 56px 0 0 0;
+    padding: 64px 0;
+    float: left;
+}
+
+.cvHead {
+    margin: 0 20%;
+    width: 60%;
+    font-family: "Segoe UI", sans-serif;
+    font-size: 40px;
+}
+
+.cvSubHead {
+    margin: 32px 20% 0 20%;
+    width: 60%;
+    font-family: "Segoe UI", sans-serif;
+    font-size: 32px;
+}
+
+.cvText {
+    margin: 16px 20% 0 20%;
+    width: 60%;
+    font-family: sans-serif;
+    font-size: 20px;
+}
+
+.cvTextB {
+    margin: 16px 20% 0 20%;
+    width: 60%;
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #828384;
+}
+
+/* ************************************ */
+
+#footer {
+    width: 100%;
+    margin: 0;
+    padding: 32px 0;
+    float: left;
+    background-color: #161616;
+    color: #FFFFFF;
+    z-index: 2;
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+#footerSpacer {
+    width: 50%;
+    margin: 32px auto;
+    min-height: 1px;
+    background-color: #D8618C;
+}
+
+#footerContent {
+    width: 50%;
+    margin: 0 auto;
+    padding: 0;
+}
+
+#footerDiv {
+    width: 33%;
+    float: left;
+    text-align: center;
+}
+
+/* ************************************ */
+/* ********* max-width: 1280px ******** */
+/* ************************************ */
+
+@media only screen and (max-width: 1280px) {
+
+    .generalWidth {
+        width: 90%;
+        margin-right: 5%;
+        margin-left: 5%;
+    }
+}
+
+/* ************************************ */
+/* ********* max-width: 1000px ******** */
+/* ************************************ */
+
+@media only screen and (max-width: 1000px) {
+
+    nav {
+        width: 60%;
+        margin-left: 10%;
+    }
+}
+
+/* ************************************ */
+/* ********* max-width: 800px ******** */
+/* ************************************ */
+
+@media only screen and (max-width: 800px) {
+
+    nav {
+        width: 90%;
+        margin-left: 5%;
+    }
+}
