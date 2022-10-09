@@ -8,8 +8,8 @@ const app = express()
 const httpPort = parseInt(process.env.HTTP_PORT) || 3000;
 const httpsPort = parseInt(process.env.HTTPS_PORT) || 4000;
 const sslCredentials = {
-    key: fs.readFileSync('ssl/key.pem', 'utf8'), 
-    cert: fs.readFileSync('ssl/cert.pem', 'utf8')
+    key: fs.readFileSync('/etc/letsencrypt/live/www.jackjf.co.uk/privkey.pem', 'utf8'), 
+    cert: fs.readFileSync('/etc/letsencrypt/live/www.jackjf.co.uk/fullchain.pem', 'utf8')
 }
 
 app.set('view engine', 'ejs')
