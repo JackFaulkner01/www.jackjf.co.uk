@@ -1,33 +1,28 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>WebUSB - <%= server %></title>
-    <script src="/js/webusb-serial.js"></script>
-    <script src="/js/webusb.js"></script>
-    <link rel="stylesheet" href="/styles/webusb.css">
-  </head>
-  <body>
-    <div class="main-content">
-      <h1>WebUSB Serial</h1>
-      <div class="connect-container">
-        <button id="connect" class="button black">Connect</button>
-        <span id="status"></span>
-      </div>
-      <div class="container">
-        <div class="sender">
-          <div class="lines-header">Sender</div>
-          <div class="lines-body">
-            <div id="sender_lines" class="lines"></div>
-            <input id="command_line" class="command-line" placeholder="Start typing ...." />
-          </div>
-        </div>
-        <div class="receiver">
-          <div class="lines-header">Receiver</div>
-          <div class="lines-body">
-            <div id="receiver_lines" class="lines"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>WebUSB - <%= server %></title>
+	<link rel="stylesheet" href="/styles/webusb.css?version=4">
+	<script src="/js/webusb.js"></script>
+</head>
+<body>
+
+	<p class="pHeader">P I C O&nbsp;&nbsp;&nbsp;&nbsp;W E B U S B</p>
+
+	<div id="webusbDiv">
+		<nav>
+			<ul>
+				<li><a id="connect" href="#connect">Connect to Pico</a></li>
+				<li class="webusbSpacer"></li>
+				<li><p id="status"></p></li>
+				<li><a id="turnOn" href="#turnOn">Turn On Pico LED</a></li>
+				<li class="webusbSpacer"></li>
+				<li><a id="turnOff" href="#turnOff">Turn Off Pico LED</a></li>
+			</ul>
+		</nav>
+	</div>
+
+</body>
 </html>

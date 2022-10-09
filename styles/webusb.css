@@ -1,109 +1,90 @@
-.main-content {
-    width: 1440px;
-    margin: auto;
-    font-size: 14px;
+html {
+    scroll-behavior: smooth;
 }
 
-.connect-container {
-    margin: 20px 0;
-}
-
-.container {
-    display: flex;
-}
-
-.sender, .receiver {
-    flex: 1;
-}
-
-.sender {
-    margin-right: 8px;
-}
-
-.receiver {
-    margin-left: 8px;
-}
-
-.lines-header {
-    height: 30px;
+body {
+    background-color: #333333;
+    color: #fefefe;
     width: 100%;
-    box-sizing: border-box;
-    background-color: #444;
-    line-height: 30px;
-    color: white;
-    padding-left: 10px;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
 }
 
-.lines-body {
+p {
+    text-align: center;
+}
+
+.pHeader {
+    width: 60%;
+    margin: 64px 20% 0 20%;
+    float: left;
+    font-size: 40px;
+}
+
+div {
     width: 100%;
-    background-color: #222;
-    min-height: 300px;
-    padding: 10px 0 20px 0;
-}
-
-.line, .command-line {
-    box-sizing: border-box;
-    width: 100%;
-    color: #f1f1f1;
-    background-color: #222;
-    outline: none;
-    border: none;
-    padding: 5px 10px;
-    font-size: 14px;
-}
-
-.line:hover {
-    background-color: #444;
-}
-
-.button::before {
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -webkit-box-shadow: #959595 0 2px 5px;
-    -moz-box-shadow: #959595 0 2px 5px;
-    border-radius: 3px;
-    box-shadow: #959595 0 2px 5px;
-    content: "";
-    display: block;
-    left: 0;
-    padding: 2px 0 0;
-    position: absolute;
+    height: 56px;
+    margin-top: 128px;
+    float: left;
+    font-family: "Segoe UI", sans-serif;
+    font-size: 20px;
     top: 0;
+    transition: background-color .5s;
 }
 
-.button:active::before { 
-    padding: 1px 0 0;
+nav {
+    display: block;
+    width: 30%;
+    margin: 0 35%;
+    padding: 0;
 }
 
-.button.black {
-    background: #656565;
-    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#656565), to(#444));
-    background: -moz-linear-gradient(#656565, #444);
-    background: linear-gradient(#656565, #444);
-    border: solid 1px #535353;
-    border-bottom: solid 3px #414141;
-    box-shadow: inset 0 0 0 1px #939393;
-    color: #fff;
-    text-shadow: 0 1px 0 #2f2f2f;
-    padding: 8px 16px;
-    outline: none;
+ul {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    list-style-type: none;
 }
 
-.button.black:hover {
-    background: #4c4c4c;
-    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#4c4c4c), to(#565656));
-    background: -moz-linear-gradient(#4c4c4c, #565656);
-    background: linear-gradient(#4c4c4c, #565656);
-    border: solid 1px #464646;
-    border-bottom: solid 3px #414141;
-    box-shadow: inset 0 0 0 1px #818181;
+ul li {
+    width: 40%;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    position: relative;
 }
 
-.button.black:active {
-    background: #474747;
-    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#474747), to(#444));
-    background: -moz-linear-gradient(#474747, #444);
-    background: linear-gradient(#474747, #444);
-    border: solid 1px #2f2f2f;
-    box-shadow: inset 0 10px 15px 0 #3e3e3e;
+.webusbSpacer {
+    width: 18%;
+}
+  
+ul li > a {
+    display: block;
+    line-height: 56px;
+    text-align: center;
+    color: #fefefe;
+    text-decoration: none;
+    z-index: 1;
+    transition: background-color .5s;
+}
+  
+ul li > a:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    bottom: 0;
+    left: 0;
+    background: #D8618C;
+    visibility: hidden;
+    border-radius: 4px;
+    transform: scaleX(0);
+    transition: .25s linear;
+}
+
+ul li > a:hover:before,
+ul li > a:focus:before {
+    visibility: visible;
+    transform: scaleX(1);
 }

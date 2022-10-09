@@ -1,52 +1,46 @@
+var serial = {};
+
 (function() {
     'use strict';
 
     document.addEventListener('DOMContentLoaded', event => {
-        let connectButton = document.querySelector("#connect");
+        let connectButton = document.querySelector('#connect');
         let statusDisplay = document.querySelector('#status');
+        let turnOnButton = document.querySelector('#turnOn');
+        let turnOffButton = document.querySelector('#turnOff');
         let port;
 
-        function addLine(linesId, text) {
-            var senderLine = document.createElement("div");
-            senderLine.className = 'line';
-            var textnode = document.createTextNode(text);
-            senderLine.appendChild(textnode);
-            document.getElementById(linesId).appendChild(senderLine);
-            return senderLine;
-        }
-
-        let currentReceiverLine;
-
-        function appendLines(linesId, text) {
-            const lines = text.split('\r');
-            if (currentReceiverLine) {
-                currentReceiverLine.innerHTML =  currentReceiverLine.innerHTML + lines[0];
-                for (let i = 1; i < lines.length; i++) {
-                    currentReceiverLine = addLine(linesId, lines[i]);
-                }
+        turnOnButton.addEventListener('click', function() {
+            if (port) {
+                port.send(new TextEncoder('utf-8').encode('turnOnLED'));
             } else {
-                for (let i = 0; i < lines.length; i++) {
-                    currentReceiverLine = addLine(linesId, lines[i]);
-                }
+                statusDisplay.textContent = "No Pico Connected";
             }
-        }
+        });
+
+        turnOffButton.addEventListener('click', function() {
+            if (port) {
+                port.send(new TextEncoder('utf-8').encode('turnOffLED'));
+            } else {
+                statusDisplay.textContent = "No Pico Connected";
+            }
+        });
 
         function connect() {
             port.connect().then(() => {
                 statusDisplay.textContent = '';
-                connectButton.textContent = 'Disconnect';
+                connectButton.textContent = 'Disconnect from Pico';
 
                 port.onReceive = data => {
-                let textDecoder = new TextDecoder();
-                console.log(textDecoder.decode(data));
-                if (data.getInt8() === 13) {
-                    currentReceiverLine = null;
-                } else {
-                    appendLines('receiver_lines', textDecoder.decode(data));
-                }
+                    let textDecoder = new TextDecoder();
+                    if (data.getInt8() === 13) {
+                        currentReceiverLine = null;
+                    } else {
+                        appendLines('receiver_lines', textDecoder.decode(data));
+                    }
                 };
                 port.onReceiveError = error => {
-                    console.error(error);
+                    statusDisplay.textContent = error;
                 };
             }, error => {
                 statusDisplay.textContent = error;
@@ -56,7 +50,7 @@
         connectButton.addEventListener('click', function() {
             if (port) {
                 port.disconnect();
-                connectButton.textContent = 'Connect';
+                connectButton.textContent = 'Connect to Pico';
                 statusDisplay.textContent = '';
                 port = null;
             } else {
@@ -71,26 +65,95 @@
 
         serial.getPorts().then(ports => {
             if (ports.length === 0) {
-                statusDisplay.textContent = 'No device found.';
+                statusDisplay.textContent = 'No Pico found';
             } else {
-                statusDisplay.textContent = 'Connecting...';
+                statusDisplay.textContent = 'Connecting to Pico';
                 port = ports[0];
                 connect();
             }
         });
-
-
-        let commandLine = document.getElementById("command_line");
-
-        commandLine.addEventListener("keypress", function(event) {
-            if (event.keyCode === 13) {
-                if (commandLine.value.length > 0) {
-                    addLine('sender_lines', commandLine.value);
-                    commandLine.value = '';
-                }
-            }
-
-            port.send(new TextEncoder('utf-8').encode(String.fromCharCode(event.which || event.keyCode)));
-        });
     });
+
+    serial.getPorts = function() {
+        return navigator.usb.getDevices().then(devices => {
+            return devices.map(device => new serial.Port(device));
+        });
+    };
+
+    serial.requestPort = function() {
+        const filters = [
+            { 'vendorId': 0x2e8a }, // Raspberry Pi
+        ];
+        return navigator.usb.requestDevice({ 'filters': filters }).then(
+            device => new serial.Port(device)
+        );
+    }
+
+    serial.Port = function(device) {
+        this.device_ = device;
+        this.interfaceNumber = 0;
+        this.endpointIn = 0;
+        this.endpointOut = 0;
+    };
+
+    serial.Port.prototype.connect = function() {
+        let readLoop = () => {
+        this.device_.transferIn(this.endpointIn, 64).then(result => {
+            this.onReceive(result.data);
+            readLoop();
+        }, error => {
+            this.onReceiveError(error);
+        });
+    };
+
+    return this.device_.open()
+        .then(() => {
+            if (this.device_.configuration === null) {
+                return this.device_.selectConfiguration(1);
+            }
+        })
+        .then(() => {
+            var interfaces = this.device_.configuration.interfaces;
+            interfaces.forEach(element => {
+            element.alternates.forEach(elementalt => {
+                if (elementalt.interfaceClass == 0xFF) {
+                    this.interfaceNumber = element.interfaceNumber;
+                    elementalt.endpoints.forEach(elementendpoint => {
+                        if (elementendpoint.direction == "out") {
+                            this.endpointOut = elementendpoint.endpointNumber;
+                        }
+                        if (elementendpoint.direction == "in") {
+                            this.endpointIn =elementendpoint.endpointNumber;
+                        }
+                    })
+                }
+            })
+            })
+        })
+        .then(() => this.device_.claimInterface(this.interfaceNumber))
+        .then(() => this.device_.selectAlternateInterface(this.interfaceNumber, 0))
+        .then(() => this.device_.controlTransferOut({
+            'requestType': 'class',
+            'recipient': 'interface',
+            'request': 0x22,
+            'value': 0x01,
+            'index': this.interfaceNumber}))
+        .then(() => {
+            readLoop();
+        });
+    };
+
+    serial.Port.prototype.disconnect = function() {
+        return this.device_.controlTransferOut({
+                'requestType': 'class',
+                'recipient': 'interface',
+                'request': 0x22,
+                'value': 0x00,
+                'index': this.interfaceNumber})
+            .then(() => this.device_.close());
+    };
+
+    serial.Port.prototype.send = function(data) {
+        return this.device_.transferOut(this.endpointOut, data);
+    };
 })();

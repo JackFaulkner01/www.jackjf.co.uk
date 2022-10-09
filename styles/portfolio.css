@@ -333,35 +333,35 @@ ul li > a:focus:before {
 }
 
 /* ************************************ */
-/* ********* max-width: 1830px ******** */
+/* ********* max-width: 1880px ******** */
 /* ************************************ */
 
-@media only screen and (max-width: 1830px) {
+@media only screen and (max-width: 1880px) {
 
     #findOutMore {
-        margin-top: 700px;
+        margin-top: 400px;
     }
 }
 
 /* ************************************ */
-/* ********* max-width: 1730px ******** */
+/* ********* max-width: 1800px ******** */
 /* ************************************ */
 
-@media only screen and (max-width: 1730px) {
+@media only screen and (max-width: 1800px) {
 
     #findOutMore {
-        margin-top: 650px;
+        margin-top: 350px;
     }
 }
 
 /* ************************************ */
-/* ********* max-width: 1610px ******** */
+/* ********* max-width: 1700px ******** */
 /* ************************************ */
 
-@media only screen and (max-width: 1610px) {
+@media only screen and (max-width: 1700px) {
 
     #findOutMore {
-        margin-top: 600px;
+        margin-top: 300px;
     }
 
     #showcaseDiv {
@@ -370,13 +370,13 @@ ul li > a:focus:before {
 }
 
 /* ************************************ */
-/* ********* max-width: 1490px ******** */
+/* ********* max-width: 1600px ******** */
 /* ************************************ */
 
-@media only screen and (max-width: 1490px) {
+@media only screen and (max-width: 1600px) {
 
     #findOutMore {
-        margin-top: 550px;
+        margin-top: 250px;
     }
 
     .moreImage {
@@ -388,17 +388,13 @@ ul li > a:focus:before {
     #showcaseDiv {
         margin-top: 160px;
     }
-
-    .projectImage {
-        margin-top: 100px;
-    }
 }
 
 /* ************************************ */
-/* ********* max-width: 1380px ******** */
+/* ********* max-width: 1400px ******** */
 /* ************************************ */
 
-@media only screen and (max-width: 1380px) {
+@media only screen and (max-width: 1400px) {
 
     #findOutMore {
         visibility: hidden;
@@ -412,7 +408,7 @@ ul li > a:focus:before {
 @media only screen and (max-width: 1280px) {
 
     #showcaseDiv {
-        margin-top: 120px;
+        margin-top: 80px;
     }
 
     .generalWidth {
@@ -421,7 +417,7 @@ ul li > a:focus:before {
         margin-left: 5%;
     }
 
-    .withImage {
+    .imageWidth {
         width: 60%;
         margin-right: 0;
         margin-left: 5%;
@@ -431,12 +427,6 @@ ul li > a:focus:before {
         width: 28%;
         margin-right: 5%;
         margin-left: 2%;
-    }
-    
-    #jimNotificationImage {
-        width: 40%;
-        margin-right: 10%;
-        margin-left: 15%;
     }
 }
 
@@ -470,7 +460,7 @@ ul li > a:focus:before {
         margin-left: 5%;
     }
 
-    .withImage {
+    .imageWidth {
         width: 90%;
         margin-right: 5%;
         margin-left: 5%;
@@ -479,12 +469,6 @@ ul li > a:focus:before {
     .projectImage {
         width: 40%;
         margin-top: 16px;
-        margin-right: 30%;
-        margin-left: 30%;
-    }
-    
-    #jimNotificationImage {
-        width: 40%;
         margin-right: 30%;
         margin-left: 30%;
     }
@@ -497,7 +481,7 @@ ul li > a:focus:before {
 @media only screen and (max-width: 700px) {
 
     #showcaseDiv {
-        margin-top: 100px;
+        margin-top: 20px;
     }
 
     #showcaseHead,
@@ -518,12 +502,6 @@ ul li > a:focus:before {
         margin-right: 20%;
         margin-left: 20%;
     }
-    
-    #jimNotificationImage {
-        width: 60%;
-        margin-right: 20%;
-        margin-left: 20%;
-    }
 }
 
 /* ************************************ */
@@ -533,6 +511,6 @@ ul li > a:focus:before {
 @media only screen and (max-width: 500px) {
 
     #showcaseDiv {
-        margin-top: 30px;
+        margin-top: 0px;
     }
 }
