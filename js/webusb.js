@@ -8,6 +8,11 @@ var serial = {};
         let statusDisplay = document.querySelector('#status');
         let turnOnButton = document.querySelector('#turnOn');
         let turnOffButton = document.querySelector('#turnOff');
+        let fileInput = document.querySelector('#file');
+        let uploadFileButton = document.querySelector('#uploadFile');
+        let fileReader = new FileReader();
+        let fileByteArray = [];
+        let fileRead = false;
         let port;
 
         turnOnButton.addEventListener('click', function() {
@@ -26,27 +31,6 @@ var serial = {};
             }
         });
 
-        function connect() {
-            port.connect().then(() => {
-                statusDisplay.textContent = '';
-                connectButton.textContent = 'Disconnect from Pico';
-
-                port.onReceive = data => {
-                    let textDecoder = new TextDecoder();
-                    if (data.getInt8() === 13) {
-                        currentReceiverLine = null;
-                    } else {
-                        appendLines('receiver_lines', textDecoder.decode(data));
-                    }
-                };
-                port.onReceiveError = error => {
-                    statusDisplay.textContent = error;
-                };
-            }, error => {
-                statusDisplay.textContent = error;
-            });
-        }
-
         connectButton.addEventListener('click', function() {
             if (port) {
                 port.disconnect();
@@ -56,24 +40,67 @@ var serial = {};
             } else {
                 serial.requestPort().then(selectedPort => {
                     port = selectedPort;
-                    connect();
+                    port.connect().then(() => {
+                        statusDisplay.textContent = '';
+                        connectButton.textContent = 'Disconnect from Pico';
+        
+                        port.onReceive = data => {
+                            let textDecoder = new TextDecoder();
+                            textDecoder.decode(data);
+                        };
+                        
+                        port.onReceiveError = error => {
+                            statusDisplay.textContent = error;
+                        };
+                    }, error => {
+                        statusDisplay.textContent = error;
+                    });
                 }).catch(error => {
                     statusDisplay.textContent = error;
                 });
             }
         });
+        
+        fileInput.addEventListener('change', (e) => {
+            fileReader.readAsArrayBuffer(e.target.files[0]);
+            fileReader.onloadend = (evt) => {
+                fileRead = false;
 
-        serial.getPorts().then(ports => {
-            if (ports.length === 0) {
-                statusDisplay.textContent = 'No Pico found';
+                if (evt.target.readyState === FileReader.DONE) {
+                    let arrayBuffer = evt.target.result,
+                        array = new Uint8Array(arrayBuffer);
+                        
+                    for (let a of array) {
+                        fileByteArray.push(a);
+                    }
+
+                    fileRead = true;
+                }
+            }
+        })
+
+        uploadFileButton.addEventListener('click', function() {
+            if (port && fileRead) {
+                port.send(new TextEncoder('utf-8').encode(fileByteArray));
+            } else if (port) {
+                statusDisplay.textContent = "No File to Upload";
             } else {
-                statusDisplay.textContent = 'Connecting to Pico';
-                port = ports[0];
-                connect();
+                statusDisplay.textContent = "No Pico Connected";
             }
         });
     });
 
+    serial.Port.prototype.send = function(data) {
+        return this.device_.transferOut(this.endpointOut, data);
+    };
+
+    serial.Port = function(device) {
+        this.device_ = device;
+        this.interfaceNumber = 0;
+        this.endpointIn = 0;
+        this.endpointOut = 0;
+    };
+    
     serial.getPorts = function() {
         return navigator.usb.getDevices().then(devices => {
             return devices.map(device => new serial.Port(device));
@@ -88,13 +115,6 @@ var serial = {};
             device => new serial.Port(device)
         );
     }
-
-    serial.Port = function(device) {
-        this.device_ = device;
-        this.interfaceNumber = 0;
-        this.endpointIn = 0;
-        this.endpointOut = 0;
-    };
 
     serial.Port.prototype.connect = function() {
         let readLoop = () => {
@@ -115,19 +135,19 @@ var serial = {};
         .then(() => {
             var interfaces = this.device_.configuration.interfaces;
             interfaces.forEach(element => {
-            element.alternates.forEach(elementalt => {
-                if (elementalt.interfaceClass == 0xFF) {
-                    this.interfaceNumber = element.interfaceNumber;
-                    elementalt.endpoints.forEach(elementendpoint => {
-                        if (elementendpoint.direction == "out") {
-                            this.endpointOut = elementendpoint.endpointNumber;
-                        }
-                        if (elementendpoint.direction == "in") {
-                            this.endpointIn =elementendpoint.endpointNumber;
-                        }
-                    })
-                }
-            })
+                element.alternates.forEach(elementalt => {
+                    if (elementalt.interfaceClass == 0xFF) {
+                        this.interfaceNumber = element.interfaceNumber;
+                        elementalt.endpoints.forEach(elementendpoint => {
+                            if (elementendpoint.direction == "out") {
+                                this.endpointOut = elementendpoint.endpointNumber;
+                            }
+                            if (elementendpoint.direction == "in") {
+                                this.endpointIn = elementendpoint.endpointNumber;
+                            }
+                        })
+                    }
+                })
             })
         })
         .then(() => this.device_.claimInterface(this.interfaceNumber))
@@ -151,9 +171,5 @@ var serial = {};
                 'value': 0x00,
                 'index': this.interfaceNumber})
             .then(() => this.device_.close());
-    };
-
-    serial.Port.prototype.send = function(data) {
-        return this.device_.transferOut(this.endpointOut, data);
     };
 })();
