@@ -11,23 +11,24 @@ var serial = {};
         let fileInput = document.querySelector('#file');
         let uploadFileButton = document.querySelector('#uploadFile');
         let fileReader = new FileReader();
-        let fileByteArray = [];
-        let fileRead = false;
+        let fileLines = [];
         let port;
 
         turnOnButton.addEventListener('click', function() {
             if (port) {
-                port.send(new TextEncoder('utf-8').encode('turnOnLED'));
+                port.send(new TextEncoder().encode('turnOnLED'));
+		        statusDisplay.textContent = '';
             } else {
-                statusDisplay.textContent = "No Pico Connected";
+                statusDisplay.textContent = 'No Pico Connected';
             }
         });
 
         turnOffButton.addEventListener('click', function() {
             if (port) {
-                port.send(new TextEncoder('utf-8').encode('turnOffLED'));
+                port.send(new TextEncoder().encode('turnOffLED'));
+		        statusDisplay.textContent = '';
             } else {
-                statusDisplay.textContent = "No Pico Connected";
+                statusDisplay.textContent = 'No Pico Connected';
             }
         });
 
@@ -43,14 +44,13 @@ var serial = {};
                     port.connect().then(() => {
                         statusDisplay.textContent = '';
                         connectButton.textContent = 'Disconnect from Pico';
-        
+
                         port.onReceive = data => {
-                            let textDecoder = new TextDecoder();
-                            textDecoder.decode(data);
+			                statusDisplay.textContent = new TextDecoder().decode(data);
                         };
-                        
+
                         port.onReceiveError = error => {
-                            statusDisplay.textContent = error;
+                            statusDisplay.textContent = new TextDecoder().decode(error);
                         };
                     }, error => {
                         statusDisplay.textContent = error;
@@ -60,39 +60,32 @@ var serial = {};
                 });
             }
         });
-        
+
         fileInput.addEventListener('change', (e) => {
-            fileReader.readAsArrayBuffer(e.target.files[0]);
-            fileReader.onloadend = (evt) => {
-                fileRead = false;
+            fileReader.readAsText(e.target.files[0]);
+            fileReader.onload = () => {
 
-                if (evt.target.readyState === FileReader.DONE) {
-                    let arrayBuffer = evt.target.result,
-                        array = new Uint8Array(arrayBuffer);
-                        
-                    for (let a of array) {
-                        fileByteArray.push(a);
-                    }
-
-                    fileRead = true;
-                }
+                fileLines = fileReader.result.split(String.fromCharCode(10));
             }
         })
 
         uploadFileButton.addEventListener('click', function() {
             if (port && fileRead) {
-                port.send(new TextEncoder('utf-8').encode(fileByteArray));
+		        port.send(new TextEncoder().encode('start_py_file_upload'));
+                for (let i = 0; i < fileLines.length; i++) {
+                    if (fileLines[i].length > 0) {
+                        port.send(new TextEncoder().encode(fileLines[i]));
+                    }
+                }
+		        port.send(new TextEncoder().encode('end_py_file_upload'));
+		        statusDisplay.textContent = '';
             } else if (port) {
-                statusDisplay.textContent = "No File to Upload";
+                statusDisplay.textContent = 'No File to Upload';
             } else {
-                statusDisplay.textContent = "No Pico Connected";
+                statusDisplay.textContent = 'No Pico Connected';
             }
         });
     });
-
-    serial.Port.prototype.send = function(data) {
-        return this.device_.transferOut(this.endpointOut, data);
-    };
 
     serial.Port = function(device) {
         this.device_ = device;
@@ -100,7 +93,7 @@ var serial = {};
         this.endpointIn = 0;
         this.endpointOut = 0;
     };
-    
+
     serial.getPorts = function() {
         return navigator.usb.getDevices().then(devices => {
             return devices.map(device => new serial.Port(device));
@@ -114,7 +107,7 @@ var serial = {};
         return navigator.usb.requestDevice({ 'filters': filters }).then(
             device => new serial.Port(device)
         );
-    }
+    };
 
     serial.Port.prototype.connect = function() {
         let readLoop = () => {
@@ -124,6 +117,10 @@ var serial = {};
         }, error => {
             this.onReceiveError(error);
         });
+    };
+
+    serial.Port.prototype.send = function(data) {
+        return this.device_.transferOut(this.endpointOut, data);
     };
 
     return this.device_.open()
