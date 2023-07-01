@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Connect Four - <%= server %></title>
+	<link rel="stylesheet" href="/styles/connectfour.css?version=1">
+	<script src="/js/connectfour.js?version=1"></script>
+</head>
+<body onload="bodyOnLoad()">
+
+	<p class="pHeader">C O N N E C T&nbsp;&nbsp;&nbsp;&nbsp;F O U R</p>
+
+	<label id="aiLevel">AI:</label>
+	<select id="aiLevelSelect">
+	  <option>Random</option>
+	  <option>Pretty bad minimax</option>
+	  <option>Decent minimax</option>
+	</select>
+	<label id="aiDepth">Depth:</label>
+	<input id="aiDepthSelect" type="number" value="1"/>
+
+	<div id="connectfourDiv">
+
+		<div class="connectfourRowDiv">
+			<span class="disc leftDisc" id="disc16"></span>
+			<span class="disc" id="disc26"></span>
+			<span class="disc" id="disc36"></span>
+			<span class="disc" id="disc46"></span>
+			<span class="disc" id="disc56"></span>
+			<span class="disc" id="disc66"></span>
+			<span class="disc rightDisc" id="disc76"></span>
+		</div>
+		
+		<div class="connectfourRowDiv">
+			<span class="disc leftDisc" id="disc15"></span>
+			<span class="disc" id="disc25"></span>
+			<span class="disc" id="disc35"></span>
+			<span class="disc" id="disc45"></span>
+			<span class="disc" id="disc55"></span>
+			<span class="disc" id="disc65"></span>
+			<span class="disc rightDisc" id="disc75"></span>
+		</div>
+
+		<div class="connectfourRowDiv">
+			<span class="disc leftDisc" id="disc14"></span>
+			<span class="disc" id="disc24"></span>
+			<span class="disc" id="disc34"></span>
+			<span class="disc" id="disc44"></span>
+			<span class="disc" id="disc54"></span>
+			<span class="disc" id="disc64"></span>
+			<span class="disc rightDisc" id="disc74"></span>
+		</div>
+
+		<div class="connectfourRowDiv">
+			<span class="disc leftDisc" id="disc13"></span>
+			<span class="disc" id="disc23"></span>
+			<span class="disc" id="disc33"></span>
+			<span class="disc" id="disc43"></span>
+			<span class="disc" id="disc53"></span>
+			<span class="disc" id="disc63"></span>
+			<span class="disc rightDisc" id="disc73"></span>
+		</div>
+
+		<div class="connectfourRowDiv">
+			<span class="disc leftDisc" id="disc12"></span>
+			<span class="disc" id="disc22"></span>
+			<span class="disc" id="disc32"></span>
+			<span class="disc" id="disc42"></span>
+			<span class="disc" id="disc52"></span>
+			<span class="disc" id="disc62"></span>
+			<span class="disc rightDisc" id="disc72"></span>
+		</div>
+
+		<div class="connectfourRowDiv">
+			<span class="disc leftDisc" id="disc11"></span>
+			<span class="disc" id="disc21"></span>
+			<span class="disc" id="disc31"></span>
+			<span class="disc" id="disc41"></span>
+			<span class="disc" id="disc51"></span>
+			<span class="disc" id="disc61"></span>
+			<span class="disc rightDisc" id="disc71"></span>
+		</div>
+
+	</div>
+
+</body>
+</html>

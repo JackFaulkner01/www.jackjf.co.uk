@@ -1,0 +1,104 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #333333;
+    color: #fefefe;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+p {
+    text-align: center;
+}
+
+.pHeader {
+    width: 60%;
+    margin: 64px 20% 0 20%;
+    float: left;
+    font-size: 40px;
+}
+
+#aiLevel {
+    margin: 32px 0 0 30%;
+    float: left;
+}
+
+#aiLevelSelect {
+    margin: 32px 0 0 8px;
+    float: left;
+}
+
+#aiDepth {
+    margin: 32px 0 0 32px;
+    float: left;
+}
+
+#aiDepthSelect {
+    margin: 32px 0 0 8px;
+    float: left;
+}
+
+#connectfourDiv {
+    width: 40%;
+    margin: 32px 30% 0 30%;
+    padding: 24px 0;
+    float: left;
+    background-color: #666666;
+}
+
+.connectfourRowDiv {
+    width: 100%;
+    margin: 8px 0;
+    float: left;
+}
+
+.disc {
+    width: 10%;
+    aspect-ratio: 1 / 1;
+    margin: 0 2%;
+    float: left;
+    background-color: #333333;
+    border-radius: 50%;
+}
+
+.leftDisc {
+    margin: 0 2% 0 3%;
+}
+
+.rightDisc {
+    margin: 0 3% 0 2%;
+}
+
+.discRed {
+    background-color: #E94744;
+}
+
+.discRedHover {
+    background-color: #E94744;
+    opacity: 0.58;
+}
+
+.discGreen {
+    background-color: #00D980;
+}
+
+.discGreenHover {
+    background-color: #00D980;
+    opacity: 0.58;
+}
+
+.discBlue {
+    background-color: #55BDCA;
+}
+
+.discOrange {
+    background-color: #F27D42;
+}
+
+.discPink {
+    background-color: #D8618C;
+}

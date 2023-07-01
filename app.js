@@ -40,10 +40,10 @@ app.get('/', (req, res) => {
 
 app.get('/cv', (req, res) => {
     res.render('cv');
-});
+})
 
-app.get('/webusb', (req, res) => {
-    res.render('webusb', {
+app.get('/connectfour', (req, res) => {
+    res.render('connectfour', {
         server: 'jackjf'
     })
 })
