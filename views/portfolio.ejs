@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jack Faulkner: Portfolio</title>
-	<link rel="stylesheet" type="text/css" href="/styles/portfolio.css?version=26">
+	<link rel="stylesheet" type="text/css" href="/styles/portfolio.css?version=27">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script>
 
+	<script>
 		var navDiv, ulliaHome, ulliaProjects, ulliaContact, ulliaCV;
 
 		// Sets up element references when page loaded (so null references aren't made)
@@ -53,24 +53,22 @@
 		function setMargin() {
 
 			var height = $("#showcaseImage").css("height");
-			$("#me").css("margin-top", Number(height.slice(0, -2)) - 128 + "px");
+			$("#profile").css("margin-top", Number(height.slice(0, -2)) - 128 + "px");
 		}
 
 		$(window).resize(function() {
 
 			var height = $("#showcaseImage").css("height");
-			$("#me").css("margin-top", Number(height.slice(0, -2)) - 128 + "px");
+			$("#profile").css("margin-top", Number(height.slice(0, -2)) - 128 + "px");
 		});
 
 	</script> 
 </head>
+
 <body id="home">
-
 	<div id="navDiv">
-
 		<nav>
 			<ul id="navUl">
-				
 				<li class="navUlLi"><a id="ulliaHome" href="#home">Home</a></li>
 				<li class="navUlLi"><a id="ulliaProjects" href="#projects">Projects</a></li>
 				<li class="navUlLi"><a id="ulliaContact" href="#contact">Contact</a></li>
@@ -80,8 +78,7 @@
 	</div>
 
 	<div id="showcase">
-
-		<img id="showcaseImage" src="/images/codeGrey.png" alt="Grey shapes wallpaper" onload="setMargin()">
+		<img id="showcaseImage" src="/images/codeGrey.png" alt="Grey shapes wallpaper" onload="setMargin()" />
 
 		<div id="showcaseDiv">
 			<p id="showcaseHead">
@@ -93,41 +90,35 @@
 		</div>
 
 		<div id="findOutMore">
-			<a id="more" href="#me">More</a>
-			<a href="#me">
-				<img id="moreImage" src="/images/whiteDownArrow.png" alt="Down arrow">
+			<a id="more" href="#profile">More</a>
+			<a href="#profile">
+				<img id="moreImage" src="/images/whiteDownArrow.png" alt="Down arrow" />
 			</a>
 		</div>
-
 	</div>
 
-	<div id="me">
-		
-		<p class="meHead generalWidth">
+	<div id="profile">
+		<p class="profileHead generalWidth">
 			Profile
 		</p>
-
-		<p class="meText generalWidth">
-			I am a Software Engineer with experience in developing software solutions across the full-stack of software development. My strong analytical and problem-solving skills, combined with my passion for coding, enable me to contribute to the success of a project. My determination and passion is shown in my success of independently learning to code in languages such as C, C# (ASP.NET Core) and Java (Android). I’m seeking an opportunity to further challenge my technical skills and join a team where I can continue to grow and learn from other experienced developers.
+		<p class="profileText generalWidth">
+			I am a Software Engineer with experience in developing software solutions across the full-stack of software development. My strong analytical and problem-solving skills, combined with my passion for coding, enable me to contribute to the success of a project. My determination and passion is shown in my success of independently learning to code in languages such as C, C# (ASP.NET Core) and Java (Android).
 		</p>
-		<p class="meText generalWidth">
+		<p class="profileText generalWidth">
 			My curiousity in engineering and how things work is not limited to just making software. I've had great fun exploring IoT devices, using IFTTT with smart devices and mobile apps to create custom functionality between smart lights and other IoT devices in my home. Privacy and security is another subject I give some attention to, with it being both an interesting hobby and increasingly important in this digital age.
 		</p>
-		<p class="meText generalWidth">
+		<p class="profileText generalWidth">
 			Personal finance also became a big interest of mine over 4 years ago when I started researching financial markets and investing. This led me to focusing my dissertation on generating investment strategies and analysing their performance in the stock market. Researching personal finance and investing also sparked my curiousity into cryptocurrencies and how they allow decentralised transactions.
 		</p>
-		<p class="meText generalWidth">
+		<p class="profileText generalWidth">
 			To read more about me including my professional experience check out <a id="cvLink" href="cv">my CV</a>.
 		</p>
-
 	</div>
 
 	<div id="projects">
-		
 		<p class="projectsHead generalWidth">
 			Projects
 		</p>
-
 		<p class="projectsSubHead generalWidth">
 			Portfolio Website / Node.js
 		</p>
@@ -139,16 +130,16 @@
 				This website itself is also one of my projects. Rather than simply make a word document to present these projects, I thought producing a website dedicated to showcasing the projects I have worked on would better demonstrate the quality of software I am able to develop. Over the past few years this website has gone through several major changes.
 			</p>
 			<p class="projectsText">
-				At first, I use a WAMP server for my projects which also served my portfolio. This proved to be reasonably unstable and was limited to only being accessible with the server's IP address on the local network.
+				At first, I used a WAMP server both for my portfolio and as the server for any of my projects. This proved to be reasonably unstable and was limited to only being accessible on the server's local network.
 			</p>
 			<p class="projectsText">
-				This changed when I did some research into how to properly setup a server and ways to setup a home server without jeprodising my local network. In the process of doing so I found Dataplicity, a service to setup a device using Nginx on a Raspberry Pi that connects via a secure HTTPS connection to the Dataplicity servers. This provided a remote shell and unique domain to connect to the web server hosted on the Raspberry Pi. Everything was then served from the Raspberry Pi using PHP.
+				This changed when I researched ways to setup a home server without putting my local network at risk. From that I found Dataplicity, a service to setup a Raspberry Pi using Nginx that connects via a secure HTTPS connection to their servers. Everything was then served from the Raspberry Pi using PHP.
 			</p> 
 			<p class="projectsText">
-				More recently I decided to learn Node.js as it simplifies development by reducing the amount of code needed and supports a huge range of frameworks. While doing so I migrated my portfolio website from the little Raspberry Pi to Heroku which offered much better performance.
+				I then decided to learn Node.js and while doing so I migrated my portfolio website to Heroku which offered much better performance.
 			</p>
 			<p class="projectsText">
-				Now this website is hosted on a Linode server which I manage myself.
+				Now this website is hosted on a Linode server which I manage myself. My portfolio is served using Nginx as a reverse proxy for the Node.js app.
 			</p>
 		</div>
 
