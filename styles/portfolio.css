@@ -17,6 +17,7 @@ body {
     font-size: 20px;
     position: fixed;
     top: 0;
+    z-index: 2;
     transition: background-color .5s;
 }
 
@@ -49,6 +50,10 @@ ul li > a {
     text-decoration: none;
     z-index: 1;
     transition: background-color .5s;
+}
+
+ul li > a:hover {
+    color: #fefefe;
 }
   
 ul li > a:before {
@@ -88,6 +93,10 @@ ul li > a:focus:before {
 }
 
 .stickyFront {
+    color: #333;
+}
+
+.stickyFront:hover {
     color: #333;
 }
 
@@ -265,6 +274,7 @@ ul li > a:focus:before {
     text-decoration: underline 0.15em rgba(216, 97, 140, 0);
     color: #212529;
     font-weight: 700;
+    z-index: 1;
     transition: text-decoration-color .3s;
 }
 
