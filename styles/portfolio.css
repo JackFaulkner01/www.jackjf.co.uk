@@ -207,6 +207,73 @@ ul li > a:focus:before {
 
 /* ************************************ */
 
+.workflow-box {
+    width: 100%;
+    float: left;
+    margin-left: 32px;
+    padding: 8px;
+    background-color: #fff;
+    background-image: linear-gradient(135deg, rgba(124, 125, 215, 0.125), rgba(124, 125, 215, 0.25)) !important;
+}
+
+.workflow-date-box {
+    width: auto;
+    float: left;
+    margin: 0 0 8px 8px;
+    padding: 8px;
+    font-weight: 700;
+    background-color: #fff;
+    background-image: linear-gradient(135deg, rgba(216, 97, 140, 0.125), rgba(216, 97, 140, 0.25)) !important;
+}
+
+.workflow-text {
+    float: left;
+    margin: 0;
+    padding: 0;
+    color: #212529;
+}
+
+.workflow-line {
+    width: 2px;
+    height: 20px;
+    float: left;
+    background-color: #000;
+    margin: 0 0 0 288px;
+}
+
+.workflow-date-line-horizontal {
+    height: 2px;
+    float: left;
+    background-color: #000;
+    margin: 22px 0 0 0;
+}
+
+.workflow-date-line-vertical {
+    width: 2px;
+    height: 32px;
+    float: left;
+    background-color: #000;
+    margin: 22px 0 0 0;
+}
+
+/* ************************************ */
+
+.projectsLink {
+    display: inline-block;
+    margin: 0;
+    position: relative;
+    text-decoration: underline 0.15em rgba(216, 97, 140, 0);
+    color: #212529;
+    font-weight: 700;
+    transition: text-decoration-color .3s;
+}
+
+.projectsLink:hover {
+    color: #212529;
+    font-weight: 700;
+    text-decoration-color: rgba(216, 97, 140, 1);
+}
+
 #projects {
     width: 100%;
     margin: 0;

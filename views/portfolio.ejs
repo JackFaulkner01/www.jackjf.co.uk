@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jack Faulkner: Portfolio</title>
-	<link rel="stylesheet" type="text/css" href="/styles/portfolio.css?version=27">
+	<link rel="stylesheet" href="/styles/bootstrap.min.css" />
+	<link rel="stylesheet" href="/styles/portfolio.css?version=27">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -132,31 +133,381 @@
 				Click here to try <a target="_blank" href="https://www.jackjf.co.uk:4443/" class="projectsLink">Core Estate</a>.<br /><br />
 				Or check out the <a target="_blank" href="https://github.com/JackFaulkner01/CoreEstate" class="projectsLink">Core Estate GitHub repo</a>.
 			</p>
-			<p class="projectsText">
-				Here's a break down of my approach to creating Core Estate:<br />
-				&#8226; Generate project files and configure the app for authorization and authentication.<br />
-				&#8226; Create WebUser model to extend IdentityUser and the AspNetUsers table.<br />
-				&#8226; Create ForSaleProperty and ToRentProperty models.<br />
-				&#8226; Generate Razor pages for CRUD operations.<br />
-				&#8226; Create manage pages for properties and restrict them to users with PropertyManager role.<br />
-				&#8226; Create PropertyViewing model.<br />
-				&#8226; Create request viewing page and manage viewings page.<br />
-				&#8226; Create page to list users viewings and page for property managers to confirm viewings.<br />
-				&#8226; Update display annotations for model data.<br />
-				&#8226; Create PropertyPhoto model and API to upload photos for a property.<br />
-				&#8226; Add PropertyPhotos carousel to the property details pages.<br />
-				&#8226; Update property descriptions layout.<br />
-				&#8226; Update delete handlers on property pages to remove photos for that property.<br />
-				&#8226; Move and update viewings button to the right side of the property details pages.<br />
-				&#8226; Update property description inputs to textarea elements.<br />
-				&#8226; Update PropertyPhotos API to upload multiple files.<br />
-				&#8226; Update layout and styling for property index and details pages.<br />
-				&#8226; Move property cards into shared views.<br />
-				&#8226; Update property pages and site root to use property card views.<br />
-				&#8226; Update media queries and bootstrap breakpoints used in pages.<br />
-				&#8226; Add filter by address to property pages.<br />
-				&#8226; Add sort options to property pages.<br />
-			</p>
+			<div class="row justify-content-center projectsText">
+				<div class="col-auto">
+					Here's a break down of my approach to creating Core Estate:<br /><br />
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-date-box">
+								<div class="workflow-text">
+									Sunday 2nd July 2023
+								</div>
+							</div>
+							<div class="workflow-date-line-horizontal" style="width: 54px;"></div>
+							<div class="workflow-date-line-vertical"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-box">
+								<div class="workflow-text">
+									Generate project files and configure the app for authorization and authentication.
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-line"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-box">
+								<div class="workflow-text">
+									Create WebUser model to extend IdentityUser and the AspNetUsers table.
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-line"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-box">
+								<div class="workflow-text">
+									Create ForSaleProperty and ToRentProperty models.
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-line"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-box">
+								<div class="workflow-text">
+									Generate Razor pages for CRUD operations.
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-line"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-box">
+								<div class="workflow-text">
+									Create manage pages for properties and restrict them to users with PropertyManager role.
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-line"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-box">
+								<div class="workflow-text">
+									Create PropertyViewing model.
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-line"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-box">
+								<div class="workflow-text">
+									Create request viewing page and manage viewings pages.
+								</div>
+							</div>
+						</div>
+					</div>
+					<br />
+					
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-date-box">
+								<div class="workflow-text">
+									Monday 3rd July 2023
+								</div>
+							</div>
+							<div class="workflow-date-line-horizontal" style="width: 55px;"></div>
+							<div class="workflow-date-line-vertical"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-box">
+								<div class="workflow-text">
+									Create page to list users viewings and page for property managers to confirm viewings.
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-line"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-box">
+								<div class="workflow-text">
+									Update display annotations for model data.
+								</div>
+							</div>
+						</div>
+					</div>
+					<br />
+					
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-date-box">
+								<div class="workflow-text">
+									Wednesday 5th July 2023
+								</div>
+							</div>
+							<div class="workflow-date-line-horizontal" style="width: 22px;"></div>
+							<div class="workflow-date-line-vertical"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-box">
+								<div class="workflow-text">
+									Create PropertyPhoto model and API to upload photos for a property.
+								</div>
+							</div>
+						</div>
+					</div>
+					<br />
+					
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-date-box">
+								<div class="workflow-text">
+									Thursday 6th July 2023
+								</div>
+							</div>
+							<div class="workflow-date-line-horizontal" style="width: 41px;"></div>
+							<div class="workflow-date-line-vertical"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-box">
+								<div class="workflow-text">
+									Add PropertyPhotos carousel to the property details pages.
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-line"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-box">
+								<div class="workflow-text">
+									Update property descriptions layout.
+								</div>
+							</div>
+						</div>
+					</div>
+					<br />
+					
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-date-box">
+								<div class="workflow-text">
+									Firday 7th July 2023
+								</div>
+							</div>
+							<div class="workflow-date-line-horizontal" style="width: 71px;"></div>
+							<div class="workflow-date-line-vertical"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-box">
+								<div class="workflow-text">
+									Update delete handlers on property pages to remove photos for that property.
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-line"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-box">
+								<div class="workflow-text">
+									Move and update viewings button to the right side of the property details pages.
+								</div>
+							</div>
+						</div>
+					</div>
+					<br />
+
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-date-box">
+								<div class="workflow-text">
+									Saturday 8th July 2023
+								</div>
+							</div>
+							<div class="workflow-date-line-horizontal" style="width: 46px;"></div>
+							<div class="workflow-date-line-vertical"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-box">
+								<div class="workflow-text">
+									Update property description inputs to textarea elements.
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-line"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-box">
+								<div class="workflow-text">
+									Update PropertyPhotos API to upload multiple files.
+								</div>
+							</div>
+						</div>
+					</div>
+					<br />
+					
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-date-box">
+								<div class="workflow-text">
+									Sunday 9th July 2023
+								</div>
+							</div>
+							<div class="workflow-date-line-horizontal" style="width: 59px;"></div>
+							<div class="workflow-date-line-vertical"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-box">
+								<div class="workflow-text">
+									Update layout and styling for property index and details pages.
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-line"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-box">
+								<div class="workflow-text">
+									Move property cards into shared views.
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-line"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-box">
+								<div class="workflow-text">
+									Update property pages and site root to use property card views.
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-line"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-box">
+								<div class="workflow-text">
+									Update media queries and bootstrap breakpoints used in pages.
+								</div>
+							</div>
+						</div>
+					</div>
+					<br />
+					
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-date-box">
+								<div class="workflow-text">
+									Monday 10th July 2023
+								</div>
+							</div>
+							<div class="workflow-date-line-horizontal" style="width: 45px;"></div>
+							<div class="workflow-date-line-vertical"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-box">
+								<div class="workflow-text">
+									Add filter by address to property pages.
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-line"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-auto">
+							<div class="workflow-box">
+								<div class="workflow-text">
+									Add sort options to property pages.
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<div class="spacerThin generalWidth">
