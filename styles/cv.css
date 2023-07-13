@@ -216,3 +216,60 @@ ul li > a:focus:before {
         margin-left: 5%;
     }
 }
+
+/* ************************************ */
+/* ********* max-width: 500px ******** */
+/* ************************************ */
+
+@media only screen and (max-width: 500px) {
+
+    nav {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    ul li {
+        width: 24%;
+    }
+}
+
+/* ************************************ */
+/* ********* max-width: 450px ******** */
+/* ************************************ */
+
+@media only screen and (max-width: 450px) {
+
+    ul li {
+        width: 23%;
+    }
+}
+
+/* ************************************ */
+/* ********* max-width: 350px ******** */
+/* ************************************ */
+
+@media only screen and (max-width: 350px) {
+
+    #navDiv {
+        height: 76px;
+    }
+
+    ul li {
+        width: 49%;
+    }
+
+    ul li > a {
+        line-height: 38px;
+    }
+}
+
+/* ************************************ */
+/* ********* max-width: 300px ******** */
+/* ************************************ */
+
+@media only screen and (max-width: 300px) {
+
+    ul li {
+        width: 48%;
+    }
+}
