@@ -92,6 +92,10 @@ ul li > a:focus:before {
     background-color: #fefefe;
 }
 
+.stickyBackDark {
+    background-color: #161616;
+}
+
 .stickyFront {
     color: #333;
 }
@@ -587,7 +591,65 @@ ul li > a:focus:before {
 
 @media only screen and (max-width: 500px) {
 
+    nav {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    ul li {
+        width: 24%;
+    }
+
     #showcaseDiv {
         margin-top: 0px;
+    }
+}
+
+/* ************************************ */
+/* ********* max-width: 450px ******** */
+/* ************************************ */
+
+@media only screen and (max-width: 450px) {
+
+    ul li {
+        width: 23%;
+    }
+}
+
+/* ************************************ */
+/* ********* max-width: 350px ******** */
+/* ************************************ */
+
+@media only screen and (max-width: 350px) {
+
+    #navDiv {
+        height: 76px;
+    }
+
+    ul li {
+        width: 49%;
+    }
+
+    ul li > a {
+        line-height: 38px;
+    }
+
+    #showcaseDiv {
+        margin-top: 56px;
+    }
+}
+
+/* ************************************ */
+/* ********* max-width: 300px ******** */
+/* ************************************ */
+
+@media only screen and (max-width: 300px) {
+
+    ul li {
+        width: 48%;
+    }
+
+    #showcaseDiv {
+        margin-top: 32px;
     }
 }

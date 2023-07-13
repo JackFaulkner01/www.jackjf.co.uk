@@ -10,24 +10,24 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 	<script>
-		var navDiv, ulliaHome, ulliaProjects, ulliaContact, ulliaCV;
+		var navDiv, navItemHome, navItemProjects, navItemContact, navItemCV;
 
 		// Sets up element references when page loaded (so null references aren't made)
 		window.onload = function() {
 
 			navDiv = document.getElementById("navDiv");
-			ulliaHome = document.getElementById("ulliaHome");
-			ulliaProjects = document.getElementById("ulliaProjects");
-			ulliaContact = document.getElementById("ulliaContact");
-			ulliaCV = document.getElementById("ulliaCV");
+			navItemHome = document.getElementById("nav-item-home");
+			navItemProjects = document.getElementById("nav-item-projects");
+			navItemContact = document.getElementById("nav-item-contact");
+			navItemCV = document.getElementById("nav-item-cv");
 
 			if (window.pageYOffset > 56) {
 				
 				navDiv.classList.add("stickyBack");
-				ulliaHome.classList.add("stickyFront");
-				ulliaProjects.classList.add("stickyFront");
-				ulliaContact.classList.add("stickyFront");
-				ulliaCV.classList.add("stickyFront");
+				navItemHome.classList.add("stickyFront");
+				navItemProjects.classList.add("stickyFront");
+				navItemContact.classList.add("stickyFront");
+				navItemCV.classList.add("stickyFront");
 			}
 		}
 
@@ -37,49 +37,59 @@
 			if (window.pageYOffset > 56) {
 				
 				navDiv.classList.add("stickyBack");
-				ulliaHome.classList.add("stickyFront");
-				ulliaProjects.classList.add("stickyFront");
-				ulliaContact.classList.add("stickyFront");
-				ulliaCV.classList.add("stickyFront");
+				navDiv.classList.remove("stickyBackDark");
+				navItemHome.classList.add("stickyFront");
+				navItemProjects.classList.add("stickyFront");
+				navItemContact.classList.add("stickyFront");
+				navItemCV.classList.add("stickyFront");
 			} else {
 			
 				navDiv.classList.remove("stickyBack");
-				ulliaHome.classList.remove("stickyFront");
-				ulliaProjects.classList.remove("stickyFront");
-				ulliaContact.classList.remove("stickyFront");
-				ulliaCV.classList.remove("stickyFront");
+				navDiv.classList.add("stickyBackDark");
+				navItemHome.classList.remove("stickyFront");
+				navItemProjects.classList.remove("stickyFront");
+				navItemContact.classList.remove("stickyFront");
+				navItemCV.classList.remove("stickyFront");
 			}
 		};
 
 		function setMargin() {
 
 			var height = $("#showcaseImage").css("height");
-			$("#profile").css("margin-top", Number(height.slice(0, -2)) - 128 + "px");
+			$("#profile").css("margin-top", Number(height.slice(0, -2)) + "px");
 		}
 
 		$(window).resize(function() {
 
 			var height = $("#showcaseImage").css("height");
-			$("#profile").css("margin-top", Number(height.slice(0, -2)) - 128 + "px");
+			$("#profile").css("margin-top", Number(height.slice(0, -2)) + "px");
 		});
 
 	</script> 
 </head>
 
 <body id="home">
-	<div id="navDiv">
+	<div id="navDiv" class="stickyBackDark">
 		<nav>
 			<ul id="navUl">
-				<li class="navUlLi"><a id="ulliaHome" href="#home">Home</a></li>
-				<li class="navUlLi"><a id="ulliaProjects" href="#projects">Projects</a></li>
-				<li class="navUlLi"><a id="ulliaContact" href="#contact">Contact</a></li>
-				<li class="navUlLi"><a id="ulliaCV" href="cv">CV</a></li>
+				<li class="navUlLi">
+					<a id="nav-item-home" href="#home">Home</a>
+				</li>
+				<li class="navUlLi">
+					<a id="nav-item-projects" href="#projects">Projects</a>
+				</li>
+				<li class="navUlLi">
+					<a id="nav-item-contact" href="#contact">Contact</a>
+				</li>
+				<li class="navUlLi">
+					<a id="nav-item-cv" href="cv">CV</a>
+				</li>
 			</ul>
 		</nav>
 	</div>
 
 	<div id="showcase">
-		<img id="showcaseImage" src="/images/codeGrey.png" alt="Grey shapes wallpaper" onload="setMargin()" />
+		<img id="showcaseImage" src="/images/codeGrey.png" onload="setMargin()" />
 
 		<div id="showcaseDiv">
 			<p id="showcaseHead">
@@ -93,7 +103,7 @@
 		<div id="findOutMore">
 			<a id="more" href="#profile">More</a>
 			<a href="#profile">
-				<img id="moreImage" src="/images/whiteDownArrow.png" alt="Down arrow" />
+				<img id="moreImage" src="/images/whiteDownArrow.png" />
 			</a>
 		</div>
 	</div>
